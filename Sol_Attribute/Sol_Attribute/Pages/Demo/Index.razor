@@ -1,0 +1,41 @@
+﻿@page "/mydemo/index"
+
+@code {
+
+    [Parameter]
+    public Dictionary<string, Object> InputAttributes { get; set; } =
+        new Dictionary<string, object>()
+        {
+            { "id","txtName" },
+            { "maxlength", "10" },
+            { "placeholder", "Full Name" },
+            { "size", "50" },
+            { "class","form-control"  }
+        };
+
+    [Parameter]
+    public Dictionary<String, Object> ButtonAttribute { get; set; } = new Dictionary<string, object>()
+    {
+        { "id","btnSubmit" },
+        { "class","btn btn-danger" },
+        { "value","Submit" }
+    };
+
+}
+
+<h3>Index</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <input @attributes="@InputAttributes" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button @attributes="@ButtonAttribute">@ButtonAttribute["value"]</button>
+        </div>
+    </div>
+</div>
